@@ -32,7 +32,7 @@ select a.name,a.color from parts a,parts b where a.weight>b.weight and b.name="t
 select avg(salary) from employee where manager="199";
 
 /*Name of each supplier and number of different parts he supplies*/
-select name,count(distinct parts) as number_of_parts from supplier join supply on supplier.numb=supply.supplier group by name;
+select name,count(distinct numb) as number_of_parts from supplier join supply on supplier.numb=item.supplier group by name;
 
 /*Total weight of parts wupplierd by supplier in Massachusetts*/
 select sum(p.weight) as total_weight from parts p,supply s,supplier su,city c where p.numb=s.parts and s.supplier=su.numb and su.city=c.name and c.state="MASS" group by s.supplier;
